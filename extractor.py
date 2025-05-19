@@ -12,6 +12,16 @@ class DataExtractor:
         """
         pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
         return re.findall(pattern, text)
+    @staticmethod
+    def extract_currency_amounts(text: str) -> List[str]:
+        """
+        Extracts currency amounts in the format of a dollar sign ($)
+        followed by a number with optional commas for thousands and
+        up to two decimal places.
+        Matches: $19.99, $1,234.56, $9.50
+        """
+        pattern = r'\$\d{1,3}(?:,\d{3})*(?:\.\d+)?\b'
+        return re.findall(pattern, text)  
     
     @staticmethod
     def extract_urls(text: str) -> List[str]:
@@ -71,7 +81,7 @@ if __name__ == "__main__":
     display_results("URL", DataExtractor.extract_urls(sample_text))
     display_results("phone number", DataExtractor.extract_phone_numbers(sample_text))
     display_results("hashtag", DataExtractor.extract_hashtags(sample_text))
-    
+    display_results("currency_amounts", DataExtractor.extract_currency_amounts(sample_text))
     print("\n" + "="*50)
     print("ANALYSIS COMPLETE".center(50))
     print("="*50)
