@@ -53,9 +53,13 @@ Here's a breakdown of the regular expressions used and how they attempt to handl
 
 Email:`r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'`
 Edge Cases Handled:Handles multiple subdomains, numeric and hyphenated domain names, and various special characters in the local part. The `\b` ensures it matches whole email addresses.
+
 Limitations:May not catch all theoretically valid but extremely unusual email formats.
+
 URL:`r'https?://(?:www\.)?[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+(?:[\/#?][^\s]*)?\b'`
+
 Edge Cases Handled:Handles both `http` and `https`, optional `www`, multiple subdomains, paths, and basic query parameters or fragments indicated by `/`, `#`, or `?`. The `\b` helps prevent partial matches.
+
 Limitations:May not perfectly handle very complex URLs with unusual characters or encoding.
 
 Phone Number:`r'(?:\+|00)?[\d\s().-]{7,}'`
