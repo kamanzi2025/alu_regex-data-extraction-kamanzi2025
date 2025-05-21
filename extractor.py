@@ -68,9 +68,9 @@ def display_results(data_type: str, results: List[str]) -> None:
 
 if __name__ == "__main__":
     sample_text = """
-    Contact us at support@example.com or sales@company.co.uk.
-    Visit https://www.example.com or call (123) 456-7890.
-    Follow #ExampleCompany on social media. Invalid data: $1.234, @test.
+    Contact us at support@stell.com or sales@stell.co.uk.
+    Visit https://www.stell.com or call (123) 456-7890.
+    Follow #stellCompany on social media. minumum price: $1.234,.
     """
 
     print("\n" + "="*50)
